@@ -7,5 +7,17 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Do Thang",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^1.0.3",
+    "bcryptjs": "^2.4.3",
+    "config": "^1.26.2",
+    "crypto": "^1.0.1",
+    "ejs": "^2.5.7",
+    "express": "^4.15.4",
+    "express-session": "^1.15.5",
+    "mysql": "^2.14.1",
+    "nodemon": "^1.12.1",
+    "q": "^1.5.0"
+  }
 }
