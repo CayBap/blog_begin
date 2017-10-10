@@ -1,11 +1,7 @@
-data.then(function(posts){
-    var data = {
-      posts:posts,
-      error : false
-    };
-   // console.log(data);
-    res.render("admin/dashboard",{data:data});
-  })
-  .catch(function(err){
-    res.render("admin/dashboard",{data:{error:"Get Post data is error"}});
-  });
+var http = require('http');
+
+http.createServer(function(req,res){
+  res.writeHead(200,{'Content-Type':'text/plain'});
+  res.write(req.url);
+  res.end();
+}).listen(3000);

@@ -140,6 +140,7 @@ router.get("/post/edit/:id",function(req,res){
     var id = params.id;
   
     var data = post_md.getPostById(id);
+    console.log(data);
     if(data){
       data.then(function(posts){
         var post = posts[0];
@@ -227,5 +228,4 @@ router.get("/user",function(req,res){
   }
 
 });
-
 module.exports = router;
