@@ -15,12 +15,12 @@ app.use(session({
   cookie: { secure: false }
 }))
 //set ejs
-app.set("views",__dirname + "/apps/views");
+app.set("views",__dirname + "/app/views");
 app.set("view engine","ejs");
 //Static folder
 app.use("/static",express.static(__dirname +"/public"));
 
-var controllers = require(__dirname + "/apps/controllers");
+var controllers = require(__dirname + "/app/controllers");
 app.use(controllers);
 
 var host = config.get("sever.host");

@@ -70,6 +70,7 @@ router.get("/signin", function(req, res) {
 
 router.post("/signin", function(req, res) {
   var params = req.body;
+  console.log(params);
   if (params.email.trim().length == 0) {
     res.render("signin.ejs", { data: { error: "Email is incorrect" } });
   } 
@@ -78,9 +79,7 @@ router.post("/signin", function(req, res) {
     if (data) {
       data.then(function(users) {
         var user = users[0];
-        console.log(user, users);
         var status = user.password == helper.hash(params.password);
-        console.log(status,  params.password, user.password);
         if (!(status)) {
           res.render("signin.ejs", { data: { error: "Password is wrong" } });
         } 
@@ -114,7 +113,7 @@ router.post ("/post/new",function(req,res){
     var data = {
       error:"Please enter a title!"
     }
-    res.render("admin/post/new",{data:data});
+    res.render("/post/new",{data:data});
   }
   else{
     var now = new Date();
@@ -128,7 +127,7 @@ router.post ("/post/new",function(req,res){
         var data ={
           error:"Could not insert to DB"
         };
-        res.render("admin/post/new",{data:data});
+        res.render("/post/new",{data:data});
       });
   }
 });
@@ -140,7 +139,7 @@ router.get("/post/edit/:id",function(req,res){
     var id = params.id;
   
     var data = post_md.getPostById(id);
-    console.log(data);
+    //console.log(data);
     if(data){
       data.then(function(posts){
         var post = posts[0];
